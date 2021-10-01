@@ -56,14 +56,15 @@ export class CartDetailsComponent implements OnInit {
     );
   }
 
-  clear(): void {
-    this.quickOrderService.clearList();
-    // this.globalMessageService.add(
-    //   {
-    //     key: 'quickOrderTable.listCleared',
-    //   },
-    //   GlobalMessageType.MSG_TYPE_INFO
-    // );
+  //WORK in progess
+  clear(entries: OrderEntry[]): void {
+    entries.forEach(entry => {
+      console.log('bob');
+      console.log(entry);
+      // setTimeout(() => {
+      //   this.activeCartService.removeEntry(entry);
+      // }, 300);
+    });
   }
 
   saveForLater(item: OrderEntry) {
