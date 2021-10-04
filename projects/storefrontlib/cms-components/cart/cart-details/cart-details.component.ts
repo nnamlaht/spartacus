@@ -57,15 +57,11 @@ export class CartDetailsComponent implements OnInit {
   }
 
   //WORK in progess
-  clear(entries: OrderEntry[]): void {
-    entries.forEach(entry => {
-      console.log('bob');
-      console.log(entry);
-      // setTimeout(() => {
-      //   this.activeCartService.removeEntry(entry);
-      // }, 300);
-    });
+  clear(): void {
+    //this.activeCartService.empty();
   }
+
+  //removeEntry(entry: OrderEntry): void {}
 
   saveForLater(item: OrderEntry) {
     if (this.loggedIn) {
