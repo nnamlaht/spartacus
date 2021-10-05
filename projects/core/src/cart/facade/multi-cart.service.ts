@@ -49,6 +49,17 @@ export class MultiCartService {
     );
   }
 
+  emptyCart(cartId: string): void {
+    this.userIdService.getUserId().subscribe((userId: string) => {
+      return this.store.dispatch(
+        new CartActions.DeleteCart({
+          userId,
+          cartId,
+        })
+      );
+    });
+  }
+
   /**
    * Returns true when there are no operations on that in progress and it is not currently loading
    *

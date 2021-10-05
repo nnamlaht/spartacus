@@ -25,7 +25,7 @@
     </div>
     <div *ngIf="cart.totalItems > 0" class="empty-cart-wrapper">
       <button
-        (click)="clear(entries)"
+        (click)="clear(cart.code)"
         [attr.aria-label]="'cartDetails.emptyCart' | cxTranslate"
         class="btn btn-block btn-action empty-cart-btn"
         type="button"

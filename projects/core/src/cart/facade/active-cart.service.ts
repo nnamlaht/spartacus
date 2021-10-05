@@ -453,6 +453,10 @@ export class ActiveCartService implements OnDestroy {
     );
   }
 
+  emptyCart(code: string): void {
+    this.multiCartService.emptyCart(code);
+  }
+
   /**
    * Assign email to cart
    *
