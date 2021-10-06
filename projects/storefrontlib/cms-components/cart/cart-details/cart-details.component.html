@@ -26,11 +26,11 @@
     <div *ngIf="cart.totalItems > 0" class="empty-cart-wrapper">
       <button
         (click)="clear(cart.code)"
-        [attr.aria-label]="'cartDetails.emptyCart' | cxTranslate"
+        [attr.aria-label]="'cartDetails.clearCart' | cxTranslate"
         class="btn btn-block btn-action empty-cart-btn"
         type="button"
       >
-        {{ 'cartDetails.emptyCart' | cxTranslate }}
+        {{ 'cartDetails.clearCart' | cxTranslate }}
       </button>
     </div>
   </ng-container>

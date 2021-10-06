@@ -3,7 +3,7 @@ export const cart = {
     id: 'ID',
     proceedToCheckout: 'Proceed to Checkout',
     cartName: 'Cart #{{code}}',
-    emptyCart: 'Empty Cart',
+    clearCart: 'Clear Cart',
   },
   cartItems: {
     id: 'ID',
