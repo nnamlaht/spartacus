@@ -453,10 +453,15 @@ export class ActiveCartService implements OnDestroy {
     );
   }
 
-  emptyCart(cartId: string): void {
+  /**
+   * Clears active cart
+   *
+   * @param cartId
+   */
+  clearActiveCart(cartId: string): void {
     this.userIdService.getUserId().subscribe((userId: string) => {
       return this.multiCartService.deleteCart(cartId, userId);
-    });
+    }).unsubscribe();
   }
 
   /**

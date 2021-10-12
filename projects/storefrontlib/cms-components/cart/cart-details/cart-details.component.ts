@@ -58,7 +58,7 @@ export class CartDetailsComponent implements OnInit {
 
   //WORK in progess
   clear(cartId: string): void {
-    this.activeCartService.emptyCart(cartId);
+    this.activeCartService.clearActiveCart(cartId);
   }
 
   saveForLater(item: OrderEntry) {
