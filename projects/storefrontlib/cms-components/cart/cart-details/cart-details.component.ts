@@ -21,6 +21,7 @@ export class CartDetailsComponent implements OnInit {
   entries$: Observable<OrderEntry[]>;
   cartLoaded$: Observable<boolean>;
   loggedIn = false;
+  clearMode = false;
   promotionLocation: PromotionLocation = PromotionLocation.ActiveCart;
   selectiveCartEnabled: boolean;
 
@@ -57,8 +58,14 @@ export class CartDetailsComponent implements OnInit {
   }
 
   //WORK in progess
-  clear(): void {
-    this.activeCartService.clearActiveCart();
+  clear(): void | boolean {
+    return this.clearMode
+      ? this.activeCartService.clearActiveCart()
+      : (this.clearMode = true);
+  }
+
+  cancelClearCart(): void{
+    this.clearMode = false;
   }
 
   saveForLater(item: OrderEntry) {

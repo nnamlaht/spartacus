@@ -25,13 +25,33 @@
     </div>
     <div *ngIf="cart.totalItems > 0" class="empty-cart-wrapper">
       <button
+        *ngIf="!clearMode"
         (click)="clear()"
-        [attr.aria-label]="'cartDetails.clearCart' | cxTranslate"
         class="btn btn-block btn-action empty-cart-btn"
         type="button"
       >
         {{ 'cartDetails.clearCart' | cxTranslate }}
       </button>
+      <div *ngIf="clearMode" class="row cx-clear-cart">
+        <div class="col-md-6">
+          <button
+            class="btn btn-block btn-secondary"
+            (click)="cancelClearCart()"
+            type="button"
+          >
+            {{ 'common.cancel' | cxTranslate }}
+          </button>
+        </div>
+        <div class="col-md-6">
+          <button
+            type="button"
+            class="btn btn-block btn-primary"
+            (click)="clear()"
+          >
+            {{ 'common.clear' | cxTranslate }}
+          </button>
+        </div>
+      </div>
     </div>
   </ng-container>
 </ng-container>
