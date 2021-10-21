@@ -33,6 +33,9 @@
         {{ 'cartDetails.clearCart' | cxTranslate }}
       </button>
       <div *ngIf="clearMode" class="row cx-clear-cart">
+        <span class="clear-cart-msg">
+          {{ 'messages.areYouSureToClearCart' | cxTranslate }}
+        </span>
         <div class="col-md-6">
           <button
             class="btn btn-block btn-secondary"

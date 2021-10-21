@@ -22,6 +22,7 @@ import { getCartIdByUserId, isCartNotFoundError } from '../../utils/utils';
 import { CartActions } from '../actions/index';
 import { StateWithMultiCart } from '../multi-cart-state';
 import { getCartHasPendingProcessesSelectorFactory } from '../selectors/multi-cart.selector';
+import { GlobalMessageService, GlobalMessageType } from '@spartacus/core';
 
 @Injectable()
 export class CartEffects {
@@ -304,6 +305,10 @@ export class CartEffects {
     mergeMap((payload) =>
       this.cartConnector.delete(payload.userId, payload.cartId).pipe(
         map(() => {
+          this.globalMessageService.add(
+            { key: 'messages.activeCartDeleted' },
+            GlobalMessageType.MSG_TYPE_CONFIRMATION
+          );
           return new CartActions.DeleteCartSuccess({ ...payload });
         }),
         catchError((error) =>
@@ -324,6 +329,7 @@ export class CartEffects {
   );
 
   constructor(
+    private globalMessageService: GlobalMessageService,
     private actions$: Actions,
     private cartConnector: CartConnector,
     private store: Store<StateWithMultiCart>

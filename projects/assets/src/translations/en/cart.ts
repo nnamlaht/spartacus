@@ -50,4 +50,9 @@ export const cart = {
     stock: 'Stock',
     forceInStock: 'In Stock',
   },
+
+  messages: {
+    activeCartDeleted: 'Active cart deleted successfully',
+    areYouSureToClearCart: 'Are you sure you want to clear this cart?',
+  },
 };
