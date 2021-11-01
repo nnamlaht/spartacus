@@ -55,4 +55,14 @@ export const cart = {
     activeCartDeleted: 'Active cart deleted successfully',
     areYouSureToClearCart: 'Are you sure you want to clear this cart?',
   },
+  validation: {
+    cartEntriesChangeDuringCheckout:
+      'During checkout availability of entries in your cart has changed. Please review your cart.',
+    cartEntryRemoved:
+      '{{name}} was removed from the cart due to being out of stock.',
+    productOutOfStock:
+      '{{name}} has been removed from the cart due to insufficient stock.',
+    productQuantityLowStock:
+      '{{name}} quantity has reduced to {{quantity}} due to insufficient stock.',
+  },
 };
