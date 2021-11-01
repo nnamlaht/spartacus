@@ -305,10 +305,13 @@ export class CartEffects {
     mergeMap((payload) =>
       this.cartConnector.delete(payload.userId, payload.cartId).pipe(
         map(() => {
-          this.globalMessageService.add(
-            { key: 'messages.activeCartDeleted' },
-            GlobalMessageType.MSG_TYPE_CONFIRMATION
-          );
+          if (payload.active) {
+            this.globalMessageService.add(
+              { key: 'clearCart.cartClearedSuccessfully' },
+              GlobalMessageType.MSG_TYPE_CONFIRMATION
+            );
+          }
+
           return new CartActions.DeleteCartSuccess({ ...payload });
         }),
         catchError((error) =>

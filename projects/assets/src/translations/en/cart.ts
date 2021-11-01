@@ -3,7 +3,6 @@ export const cart = {
     id: 'ID',
     proceedToCheckout: 'Proceed to Checkout',
     cartName: 'Cart #{{code}}',
-    clearCart: 'Clear Cart',
   },
   cartItems: {
     id: 'ID',
@@ -51,8 +50,9 @@ export const cart = {
     forceInStock: 'In Stock',
   },
 
-  messages: {
-    activeCartDeleted: 'Active cart deleted successfully',
+  clearCart: {
+    clearCart: 'Clear Cart',
+    cartClearedSuccessfully: 'Active cart cleared successfully.',
     areYouSureToClearCart: 'Are you sure you want to clear this cart?',
   },
   validation: {

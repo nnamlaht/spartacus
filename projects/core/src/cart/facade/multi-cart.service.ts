@@ -49,7 +49,6 @@ export class MultiCartService {
     );
   }
 
-
   /**
    * Returns true when there are no operations on that in progress and it is not currently loading
    *
@@ -322,12 +321,14 @@ export class MultiCartService {
    *
    * @param cartId
    * @param userId
+   * @param active flag used to when deleting the active cart
    */
-  deleteCart(cartId: string, userId: string): void {
+  deleteCart(cartId: string, userId: string, active?: boolean): void {
     this.store.dispatch(
       new CartActions.DeleteCart({
         userId,
         cartId,
+        active,
       })
     );
   }
