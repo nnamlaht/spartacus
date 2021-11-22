@@ -1,0 +1,48 @@
+<ng-container>
+  <div (esc)="close('Escape clicked')" class="cx-clear-cart-dialog">
+    <div class="cx-saved-cart-form-container">
+      <!-- Modal Header -->
+      <div class="modal-header cx-clear-cart-container">
+        <div class="cx-clear-cart-title modal-title">Clear Cart</div>
+
+        <button
+          (click)="close('Close Save Cart Dialog')"
+          [attr.aria-label]="'common.close' | cxTranslate"
+          class="cx-saved-cart-form-close close"
+          type="button"
+        >
+          <span aria-hidden="true">
+            <cx-icon [type]="iconTypes.CLOSE"></cx-icon>
+          </span>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="cx-clear-cart-body">
+        <p>Are you sure?</p>
+
+        <!-- start SAVE and EDIT form -->
+        <div>
+          <div class="cx-clear-cart-footer">
+            <button
+              (click)="close('Close Save Cart Dialog')"
+              [attr.aria-label]="'common.close' | cxTranslate"
+              class="btn btn-action"
+              type="button"
+            >
+              {{ 'savedCartDialog.cancel' | cxTranslate }}
+            </button>
+            <button
+              (click)="clear()"
+              [attr.aria-label]="'common.save' | cxTranslate"
+              class="btn btn-primary"
+              type="button"
+            >
+              {{ 'savedCartDialog.save' | cxTranslate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
