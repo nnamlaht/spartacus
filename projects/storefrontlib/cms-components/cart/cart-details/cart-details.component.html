@@ -37,29 +37,6 @@
       >
         {{ 'clearCart.clearCart' | cxTranslate }}
       </button>
-      <div *ngIf="clearMode" class="row cx-clear-cart">
-        <span class="clear-cart-msg">
-          {{ 'clearCart.areYouSureToClearCart' | cxTranslate }}
-        </span>
-        <div class="col-md-6">
-          <button
-            class="btn btn-block btn-secondary"
-            (click)="cancelClearCart()"
-            type="button"
-          >
-            {{ 'common.cancel' | cxTranslate }}
-          </button>
-        </div>
-        <div class="col-md-6">
-          <button
-            type="button"
-            class="btn btn-block btn-primary"
-            (click)="clear()"
-          >
-            {{ 'common.clear' | cxTranslate }}
-          </button>
-        </div>
-      </div>
     </div>
   </ng-container>
 </ng-container>

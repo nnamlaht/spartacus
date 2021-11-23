@@ -49,11 +49,11 @@ export const cart = {
     stock: 'Stock',
     forceInStock: 'In Stock',
   },
-
   clearCart: {
     clearCart: 'Clear Cart',
     cartClearedSuccessfully: 'Active cart cleared successfully.',
     areYouSureToClearCart: 'Are you sure you want to clear this cart?',
+    allItemsWillBeRemoved: 'All items in your active cart will be removed.',
   },
   validation: {
     cartEntriesChangeDuringCheckout:

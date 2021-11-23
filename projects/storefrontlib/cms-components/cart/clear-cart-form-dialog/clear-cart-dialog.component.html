@@ -1,8 +1,8 @@
 <ng-container>
   <div (esc)="close('Escape clicked')" class="cx-clear-cart-dialog">
-    <div class="cx-saved-cart-form-container">
+    <div class="cx-clear-cart-container">
       <!-- Modal Header -->
-      <div class="modal-header cx-clear-cart-container">
+      <div class="modal-header cx-clear-cart-header">
         <div class="cx-clear-cart-title modal-title">Clear Cart</div>
 
         <button
@@ -19,26 +19,28 @@
 
       <!-- Modal Body -->
       <div class="cx-clear-cart-body">
-        <p>Are you sure?</p>
-
-        <!-- start SAVE and EDIT form -->
+        <div class="clear-cart-msg">
+          {{ 'clearCart.allItemsWillBeRemoved' | cxTranslate }}
+        </div>
+        <div class="clear-cart-warning" role="alert">
+          {{ 'clearCart.areYouSureToClearCart' | cxTranslate }}
+        </div>
         <div>
           <div class="cx-clear-cart-footer">
             <button
               (click)="close('Close Save Cart Dialog')"
-              [attr.aria-label]="'common.close' | cxTranslate"
               class="btn btn-action"
               type="button"
             >
-              {{ 'savedCartDialog.cancel' | cxTranslate }}
+              {{ 'common.cancel' | cxTranslate }}
             </button>
             <button
+              [cxFocus]="{ autofocus: true }"
               (click)="clear()"
-              [attr.aria-label]="'common.save' | cxTranslate"
               class="btn btn-primary"
               type="button"
             >
-              {{ 'savedCartDialog.save' | cxTranslate }}
+              {{ 'clearCart.clearCart' | cxTranslate }}
             </button>
           </div>
         </div>

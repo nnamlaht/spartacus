@@ -1,4 +1,6 @@
-cx-clear-cart-dialog {
+@import '../../theme';
+
+%cx-clear-cart-dialog {
   background-color: rgba(0, 0, 0, 0.5);
 
   .cx-clear-cart-dialog {
@@ -18,6 +20,15 @@ cx-clear-cart-dialog {
 
       .cx-clear-cart-body {
         @extend .modal-body;
+
+        .clear-cart-msg {
+          margin-bottom: 1.5rem;
+        }
+
+        .clear-cart-warning {
+          color: var(--cx-color-danger);
+          margin-bottom: 1.5rem;
+        }
       }
 
       .cx-clear-cart-footer {
