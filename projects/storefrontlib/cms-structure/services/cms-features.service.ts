@@ -37,6 +37,11 @@ export class CmsFeaturesService {
   // can map to features `checkout` and `order`
   private componentFeatureMap: Map<string, string[]> = new Map();
 
+  private componentExistingConfigurationMap: Map<
+    string,
+    CmsComponentMapping | undefined
+  > = new Map();
+
   /*
    * Contains either FeatureInstance or FeatureInstance resolver for not yet
    * resolved feature modules
@@ -193,9 +198,21 @@ export class CmsFeaturesService {
 
     // extract cms components configuration from feature config
     for (const componentType of featureConfig.cmsComponents ?? []) {
+      /**
+       * update same cms component mapping's configuration found
+       * across all feature instance if the configuration exist
+       * in order to use the latest configuration
+       **/
+      if (resolvedConfiguration.cmsComponents?.[componentType]) {
+        this.componentExistingConfigurationMap.set(
+          componentType,
+          resolvedConfiguration.cmsComponents?.[componentType]
+        );
+      }
+
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       featureInstance.componentsMappings![componentType] =
-        resolvedConfiguration.cmsComponents?.[componentType] ?? {};
+        this.componentExistingConfigurationMap.get(componentType);
     }
     return featureInstance;
   }
